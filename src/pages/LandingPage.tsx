@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Link2, BookOpen, Zap, Shield, Sparkles } from 'lucide-react';

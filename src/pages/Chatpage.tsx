@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
 import { Button } from '../component/ui/Button';
 import { Sidebar } from '../component/Chat/Sidebar';
 import { ChatArea } from '../component/Chat/ChatArea';
-import type { Conversation, Message, Source } from '../types';
+import type { Conversation, Message } from '../types';
 import { mockApiCall } from '../utils/mockApi';
 
 const STORAGE_KEY = 'aura-conversations';
