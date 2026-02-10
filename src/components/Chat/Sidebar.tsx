@@ -1,7 +1,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, MessageSquare, Trash2, X, Sparkles } from 'lucide-react';
-import { Button } from '../ui/Button';
+import { Button } from '../Button';
 import type { Conversation } from '../../types/index';
 
 interface SidebarProps {

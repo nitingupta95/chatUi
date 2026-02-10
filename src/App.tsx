@@ -1,11 +1,13 @@
- 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { motion, type Transition } from 'framer-motion';
-import { ThemeProvider } from './context/ThemeContext';
-import { Layout } from './component/layout/Layout'
+import { motion, type Transition } from 'framer-motion'; 
+import { Layout } from './components/layout/Layout';
 import { LandingPage } from './pages/LandingPage';
 import { UploadPage } from './pages/UploadPage';
 import { ChatPage } from './pages/Chatpage';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
+import { PrivateRoute } from './components/PrivateRoute';
+import { PublicRoute } from './components/PublicRoute';
 
 const pageVariants = {
   initial: { opacity: 0, x: 20 },
@@ -13,7 +15,7 @@ const pageVariants = {
   out: { opacity: 0, x: -20 },
 };
 
-const pageTransition:Transition = {
+const pageTransition: Transition = {
   type: 'tween',
   ease: 'anticipate',
   duration: 0.5,
@@ -21,28 +23,28 @@ const pageTransition:Transition = {
 
 function App() {
   return (
-    <ThemeProvider>
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Layout>
-                <motion.div
-                  initial="initial"
-                  animate="in"
-                  exit="out"
-                  variants={pageVariants}
-                  transition={pageTransition}
-                >
-                  <LandingPage />
-                </motion.div>
-              </Layout>
-            }
-          />
-          <Route
-            path="/upload"
-            element={
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <motion.div
+                initial="initial"
+                animate="in"
+                exit="out"
+                variants={pageVariants}
+                transition={pageTransition}
+              >
+                <LandingPage />
+              </motion.div>
+            </Layout>
+          }
+        />
+        <Route
+          path="/upload"
+          element={
+            <PrivateRoute>
               <Layout>
                 <motion.div
                   initial="initial"
@@ -54,11 +56,13 @@ function App() {
                   <UploadPage />
                 </motion.div>
               </Layout>
-            }
-          />
-          <Route
-            path="/chat"
-            element={
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/chat"
+          element={
+            <PrivateRoute>
               <motion.div
                 initial="initial"
                 animate="in"
@@ -68,11 +72,43 @@ function App() {
               >
                 <ChatPage />
               </motion.div>
-            }
-          />
-        </Routes>
-      </Router>
-    </ThemeProvider>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <PublicRoute>
+              <motion.div
+                initial="initial"
+                animate="in"
+                exit="out"
+                variants={pageVariants}
+                transition={pageTransition}
+              >
+                <SignupPage />
+              </motion.div>
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <motion.div
+                initial="initial"
+                animate="in"
+                exit="out"
+                variants={pageVariants}
+                transition={pageTransition}
+              >
+                <LoginPage />
+              </motion.div>
+            </PublicRoute>
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 

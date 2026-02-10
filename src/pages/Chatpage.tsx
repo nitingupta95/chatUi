@@ -1,9 +1,9 @@
 import  { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
-import { Button } from '../component/ui/Button';
-import { Sidebar } from '../component/Chat/Sidebar';
-import { ChatArea } from '../component/Chat/ChatArea';
+import { Button } from '../components/Button';
+import { Sidebar } from '../components/Chat/Sidebar';
+import { ChatArea } from '../components/Chat/ChatArea';
 import type { Conversation, Message } from '../types';
 import { mockApiCall } from '../utils/mockApi';
 
@@ -175,9 +175,9 @@ export function ChatPage() {
           variant="ghost"
           size="sm"
           onClick={() => setIsSidebarOpen(true)}
-          icon={Menu}
           className="bg-white/20 dark:bg-gray-800/20 backdrop-blur-lg border border-white/20 dark:border-gray-700/20"
         >
+          <Menu className="w-4 h-4 mr-2" />
           Menu
         </Button>
       </motion.div>

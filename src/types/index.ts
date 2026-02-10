@@ -22,4 +22,21 @@ export interface Conversation {
   updatedAt: Date;
 }
 
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  roles: string[];
+  memberProfile: UserProfile;
+}
+export interface UserProfile {
+  skills: string[];
+  pastCompanies: string[];
+  domains?: string[];
+  experienceLevel?: "junior" | "mid" | "senior";
+  yearsOfExperience?: number;
+  experienceYears?: number; // Deprecated, use yearsOfExperience
+  preferences?: string[];
+}
+
 export type Theme = 'light' | 'dark';

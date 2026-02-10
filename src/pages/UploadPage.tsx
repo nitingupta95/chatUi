@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Upload, Link, FileText, MessageSquare, ArrowRight, CheckCircle } from 'lucide-react';
-import { Button } from '../component/ui/Button';
-import { Card } from '../component/ui/Card';
+import { Button } from '../components/Button';
+import { Card } from '../components/Card';
 
 export function UploadPage() {
   const navigate = useNavigate();
@@ -165,10 +165,10 @@ export function UploadPage() {
                 >
                   <Button
                     onClick={handleSubmit}
-                    icon={MessageSquare}
                     size="lg"
                     disabled={!linkUrl}
                   >
+                    <MessageSquare className="w-5 h-5 mr-2" />
                     Start Chatting
                   </Button>
                 </motion.div>
@@ -191,8 +191,8 @@ export function UploadPage() {
           <Button
             variant="outline"
             onClick={() => navigate('/chat')}
-            icon={ArrowRight}
           >
+            <ArrowRight className="w-5 h-5 mr-2" />
             Explore Demo
           </Button>
         </motion.div>

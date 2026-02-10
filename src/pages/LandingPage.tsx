@@ -2,8 +2,8 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Link2, BookOpen, Zap, Shield, Sparkles } from 'lucide-react';
-import { Button } from '../component/ui/Button';
-import { Card } from '../component/ui/Card';
+import { Button } from '../components/Button';
+import { Card } from '../components/Card';
 
 const features = [
   {
@@ -32,10 +32,10 @@ export function LandingPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen  bg-gray-100">
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-20 pb-32">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600/20 via-secondary-600/20 to-accent-600/20" />
+        <div className="absolute inset-0  " />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -73,7 +73,7 @@ export function LandingPage() {
             >
               <Button
                 size="lg"
-                onClick={() => navigate('/upload')}
+                onClick={() => navigate('/login')}
                 icon={ArrowRight}
                 className="text-xl px-12 py-4 animate-pulse-glow"
               >
@@ -111,7 +111,7 @@ export function LandingPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-8 h-full text-center group hover:bg-white/30 dark:hover:bg-gray-800/30">
+                <Card className="p-8 h-full text-center group bg-black">
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-primary-600 to-secondary-600 text-white mb-6 group-hover:shadow-lg"
@@ -119,11 +119,11 @@ export function LandingPage() {
                     <feature.icon className="w-8 h-8" />
                   </motion.div>
                   
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                  <h3 className="text-xl font-bold text-gray-100 dark:text-white mb-4">
                     {feature.title}
                   </h3>
                   
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                  <p className="text-gray-400 dark:text-gray-300 leading-relaxed">
                     {feature.description}
                   </p>
                 </Card>
@@ -135,7 +135,7 @@ export function LandingPage() {
 
       {/* CTA Section */}
       <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-600/10 to-secondary-600/10" />
+        <div className="absolute inset-0 bg-black text-white" />
         
         <motion.div
           initial={{ opacity: 0 }}
@@ -144,11 +144,11 @@ export function LandingPage() {
           viewport={{ once: true }}
           className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-100 dark:text-white mb-6">
             Ready to Transform Your Workflow?
           </h2>
           
-          <p className="text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-400 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
             Join thousands of professionals who've revolutionized their knowledge management with AURA.
           </p>
           
